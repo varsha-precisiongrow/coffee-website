@@ -1,19 +1,24 @@
 const express = require("express");
 const cors = require("cors");
-const path = require("path");
 
 const app = express();
 
+/* Middleware */
 app.use(cors());
 app.use(express.json());
 
-/* API */
+/* =========================
+   API ROUTES
+========================= */
 
+// Test route
 app.get("/api/test", (req, res) => {
-  res.json({ success: true });
+  res.json({ success: true, message: "API is working 🚀" });
 });
 
-/* API 404 */
+/* =========================
+   404 HANDLER FOR API
+========================= */
 
 app.use("/api", (req, res) => {
   res.status(404).json({
@@ -22,45 +27,20 @@ app.use("/api", (req, res) => {
   });
 });
 
-/* FRONTEND */
+/* =========================
+   ROOT ROUTE
+========================= */
 
-const buildPath = path.join(__dirname, "dist");
-
-app.use(express.static(buildPath));
-
-/* VALID ROUTES */
-
-const validRoutes = [
-  "/",
-  "/about",
-  "/contact",
-  "/story",
-  "/blog",
-  "/beans",
-  "/sustainability",
-];
-
-/* HANDLE ROUTES */
-
-app.get("*", (req, res) => {
-
-  if (validRoutes.includes(req.path)) {
-
-    return res.sendFile(
-      path.join(buildPath, "index.html")
-    );
-
-  }
-
-  return res.status(404).sendFile(
-    path.join(buildPath, "index.html")
-  );
-
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully 🚀");
 });
 
-/* START */
+/* =========================
+   START SERVER
+========================= */
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+const PORT = process.env.PORT || 10000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
