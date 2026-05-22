@@ -1,0 +1,9 @@
+{
+  "name": "Coffee Website",
+  "short_name": "Coffee",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1c1c1c",
+  "theme_color": "#1c1c1c",
+  "icons": []
+}

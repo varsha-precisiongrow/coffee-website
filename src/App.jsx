@@ -123,7 +123,7 @@ import BlogDetailPg from "./Pages/Blog/BlogDetailPg";
 import Health from "./Pages/Health";
 import Contact from "./Pages/Contact";
 import NotFound from "./Pages/NotFound";
-// import BackendTest from "./Components/BackendTest";
+import BackendTest from "./Components/BackendTest";
 
 import "./index.css";
 
@@ -183,7 +183,7 @@ function App() {
           <Canonical />
 
           {/* Backend Test */}
-          {/* <BackendTest /> */}
+          <BackendTest />
 
           {/* Routes */}
           <Routes>

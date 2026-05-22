@@ -35,7 +35,7 @@ const BackendTest = () => {
   const testApi = async () => {
     try {
       const res = await axios.get(
-        "https://coffee-website-zoyk.onrender.com/api/test"
+        "https://coffeeinstitute.co.in/api/test"
       );
 
       console.log("SUCCESS:", res.data);
