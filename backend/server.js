@@ -48,11 +48,11 @@ app.get("/api/test", (req, res) => {
 });
 
 /* =========================
-   BUILD FOLDER
+   dist FOLDER
 ========================= */
 
 // FIXED FOR RENDER
-app.use(express.static(path.join(__dirname, "../build")));
+app.use(express.static(path.join(__dirname, "../dist")));
 
 /* =========================
    VALID FRONTEND ROUTES
@@ -82,7 +82,7 @@ app.get("*", (req, res) => {
     validRoutes.includes(reqPath)
   ) {
     return res.sendFile(
-      path.join(__dirname, "../build", "index.html")
+      path.join(__dirname, "../dist", "index.html")
     );
   }
 
