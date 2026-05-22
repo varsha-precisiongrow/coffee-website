@@ -51,7 +51,8 @@ app.get("/api/test", (req, res) => {
    BUILD FOLDER
 ========================= */
 
-app.use(express.static(path.join(__dirname, "build")));
+// FIXED FOR RENDER
+app.use(express.static(path.join(__dirname, "../build")));
 
 /* =========================
    VALID FRONTEND ROUTES
@@ -75,13 +76,13 @@ const validRoutes = [
 app.get("*", (req, res) => {
   const reqPath = req.path;
 
-  // Blog Dynamic Routes
+  // VALID ROUTES
   if (
     reqPath.startsWith("/blog/") ||
     validRoutes.includes(reqPath)
   ) {
     return res.sendFile(
-      path.join(__dirname, "build", "index.html")
+      path.join(__dirname, "../build", "index.html")
     );
   }
 
