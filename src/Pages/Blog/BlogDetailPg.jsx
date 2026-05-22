@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../../Firebaseconfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const BlogDetailPg = () => {
   const { slug } = useParams();
@@ -32,6 +33,14 @@ const BlogDetailPg = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 pt-28">
+        <div className="mb-6 text-xl text-gray-600 max-w-7xl mx-auto">
+        <Link to="/" className="hover:text-black font-medium">
+          Home
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="text-black font-semibold">Blog</span>
+      </div> 
+
       <h1 className="text-3xl font-bold mb-6">{post.title}</h1>
 
       <img
