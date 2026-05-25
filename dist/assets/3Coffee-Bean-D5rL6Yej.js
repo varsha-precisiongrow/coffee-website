@@ -1,0 +1,1 @@
+var e=`/assets/3Coffee-Bean-BKGru5_Y.png`;export{e as t};
