@@ -61,21 +61,23 @@ const Footer = () => {
           <span className="absolute bottom-0 left-[-40%] w-[30%] h-[2px] bg-[#6f4e37] animate-[slide_2s_linear_infinite]"></span>
         </h3>
 
-          <ul className="space-y-2 text-lg">
+          <ul className="space-y-1 text-lg">
             <li>Unit No 22, Building No. 2(A3), Sector 1, Millennium Business Park, Mahape, Navi Mumbai, 400710.</li>
             <h3 className="relative inline-block font-semibold mb-1 text-[#d6b08c] overflow-hidden">EMAIL
             <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#d6b08c]"></span>
             <span className="absolute bottom-0 left-[-40%] w-[30%] h-[2px] bg-[#6f4e37] animate-[slide_2s_linear_infinite]"></span>
             </h3>
-               <p className="mt-2 text-lg">info@coffeeinstitute.co.in</p>
+            <p className=" text-lg">
+              <a href="mailto:info@coffeeinstitute.co.in" className="hover:text-[#d6b08c] transition">info@coffeeinstitute.co.in </a>
+            </p>
           </ul>
-
+            
         </div>
 
         {/* Quick Links */}
         <div>
           <h3 className="relative inline-block font-semibold mb-4 text-[#d6b08c] overflow-hidden">QUICK LINKS
-           <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#d6b08c]"></span>
+            <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#d6b08c]"></span>
             <span className="absolute bottom-0 left-[-40%] w-[30%] h-[2px] bg-[#6f4e37] animate-[slide_2s_linear_infinite]"></span>
           </h3>
         <ul className="space-y-2 text-lg">

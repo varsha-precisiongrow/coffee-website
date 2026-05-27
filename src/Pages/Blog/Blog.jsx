@@ -17,7 +17,7 @@ const Blog = () => {
       try {
         const q = query(
           collection(db, "posts"),
-          where("categoryId", "==", "Act-East")
+          where("categoryId", "==", "Coffee-website")
         );
 
         const snap = await getDocs(q);

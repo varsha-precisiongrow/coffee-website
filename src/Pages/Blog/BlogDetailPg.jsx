@@ -12,7 +12,7 @@ const BlogDetailPg = () => {
     const fetch = async () => {
       const q = query(
         collection(db, "posts"),
-        where("categoryId", "==", "Act-East")
+        where("categoryId", "==", "Coffee-website")
       );
 
       const snap = await getDocs(q);
