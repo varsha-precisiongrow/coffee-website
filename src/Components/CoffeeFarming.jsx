@@ -83,7 +83,6 @@ const data = [
     ],
   },
 ];
-
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
   show: {
@@ -92,86 +91,48 @@ const fadeUp = {
     transition: { duration: 0.7 },
   },
 };
-
 export default function CoffeeFarming() {
   return (
     <section className="py-24 bg-gradient-to-r from-[#f5e6d3] via-white to-[#f5e6d3] relative">
-      <img
-      src={Coffeecup}
-      alt="coffee" loading="lazy"
-      className="hidden md:block absolute left-0 bottom-0 w-48 opacity-80 float-left-anim"
-    />
-    <img
-      src={coffeeleaf}
-      alt="coffee" loading="lazy"
-      className="hidden md:block absolute left-0 top-0 w-44 opacity-80 float-left-anim"
-    />
-
-
-      <div className="max-w-[80%] mx-auto px-6">
-
+      <img src={Coffeecup} alt="coffee" loading="lazy" className="hidden md:block absolute left-0 bottom-0 w-48 opacity-80 float-left-anim" />
+    <img src={coffeeleaf} alt="coffee" loading="lazy" className="hidden md:block absolute left-0 top-0 w-44 opacity-80 float-left-anim"/>
+     <div className="max-w-[80%] mx-auto px-6">
         {/* Heading */}
         <h5 className="text-4xl font-bold text-center text-[#5c3b2a] uppercase">
           Coffee Cultivation Process
         </h5>
-
         <div className="w-24 h-1 bg-[#d4a373] mx-auto mt-3 rounded-full" />
-
         {/* Grid */}
         <div className="grid md:grid-cols-2 gap-10 mt-12">
-
           {data.map((item, index) => {
             const reverse = index % 2 !== 0;
-
             return (
-             <motion.div
-              key={item.id}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className={`flex flex-col md:flex-row ${
+             <motion.div key={item.id} variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className={`flex flex-col md:flex-row ${
                 reverse ? "md:flex-row-reverse" : ""
               } bg-white rounded-xl shadow-md overflow-hidden border-b-2 border-[#5c3b2a] transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 ${
-                reverse ? "md:border-l-2" : "md:border-r-2"
-              }`}
-            >
-
+                reverse ? "md:border-l-2" : "md:border-r-2" }`}>
                 {/* IMAGE */}
                 <div className="md:w-1/2 h-60 md:h-auto">
-                  <img
-                    src={item.image}
-                    alt={item.title} loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={item.image} alt={item.title} loading="lazy" className="w-full h-full object-cover" />
                 </div>
-
                 {/* CONTENT */}
                 <div className="p-6 md:w-1/2">
-
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 flex items-center justify-center bg-[#6F4E37] text-white rounded-full font-bold">
-                      {item.id}
-                    </div>
-                    <h6 className="text-2xl font-semibold text-[#4B2E2B]">
-                      {item.title}
-                    </h6>
+                    <div className="w-10 h-10 flex items-center justify-center bg-[#6F4E37] text-white rounded-full font-bold">{item.id}</div>
+                    <h6 className="text-2xl font-semibold text-[#4B2E2B]"> {item.title} </h6>
                   </div>
-
                   <ul className="space-y-2 text-gray-700">
                     {item.points.map((p, i) => (
-                      <li key={i} className="flex gap-2 text-lg">
+                       <li key={i} className="flex gap-2 text-lg">
                         <span className="text-[#6F4E37]">•</span>
                         {p}
                       </li>
                     ))}
                   </ul>
-
                 </div>
               </motion.div>
             );
           })}
-
         </div>
       </div>
     </section>

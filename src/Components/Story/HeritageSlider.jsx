@@ -47,36 +47,24 @@ export default function HeritageSlider() {
   const getIndex = (offset) => {
     return (current + offset + slides.length) % slides.length;
   };
-
   return (
     <section className="relative min-h-[100vh] w-full overflow-hidden bg-black py-10">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out scale-110"
-        style={{
-          backgroundImage: `url(${slides[current].image})`,
-        }}
-      />
-
+      <div className="absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out scale-110"
+        style={{ backgroundImage: `url(${slides[current].image})`, }}/>
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/70" />
-
-      {/* Main Content */}
+      {/* Main content */}
       <div className="relative z-20 h-full flex items-center justify-center px-6 lg:px-20">
         <div className="w-full max-w-[1800px]">
-       
-
           {/* Slider */}
           <div className="grid grid-cols-12 items-end gap-6">
             {/* Left Card */}
             <div className="col-span-12 lg:col-span-3">
               <div className="relative group">
-                <img
-                  src={slides[getIndex(-1)].image}
+                <img src={slides[getIndex(-1)].image}
                   alt="slides" loading="lazy"
-                  className="w-full h-[250px] object-cover transition-all duration-1000"
-                />
-
+                  className="w-full h-[250px] object-cover transition-all duration-1000" />
                 <div className="mt-6 text-white">
                   <span className="text-3xl font-light">
                     {slides[getIndex(-1)].id}
@@ -86,20 +74,13 @@ export default function HeritageSlider() {
                   </h3>
                 </div>
               </div>
-            </div>
-
-          
+            </div>       
             {/* Center Card */}
             <div className="col-span-12 lg:col-span-6 relative">
             <div className="relative overflow-hidden">
-                <img
-                src={slides[current].image}
-                alt="slide1" loading="lazy"
-                className="w-full h-[800px] object-cover transition-all duration-[2000ms] ease-in-out"
-                />
-
+              <img src={slides[current].image} alt="slide1" loading="lazy"
+                className="w-full h-[800px] object-cover transition-all duration-[2000ms] ease-in-out" />
                 <div className="absolute inset-0 bg-black/30" />
-
                 {/* Center Content */}
                 <div className="absolute inset-0 flex flex-col justify-between py-12 px-8 md:px-14">
                 {/* Heading at Top */}
@@ -108,7 +89,6 @@ export default function HeritageSlider() {
                     {slides[current].heading}
                     </h3>
                 </div>
-
                 {/* Description at Bottom */}
                 <div className="text-center text-white pb-8">
                     <p className="max-w-4xl mx-auto text-sm md:text-2xl lg:text-3xl  font-light">
@@ -124,9 +104,7 @@ export default function HeritageSlider() {
                 <img
                   src={slides[getIndex(1)].image}
                   alt="slide3" loading="lazy"
-                  className="w-full h-[250px] object-cover transition-all duration-1000"
-                />
-
+                  className="w-full h-[250px] object-cover transition-all duration-1000" />
                 <div className="mt-6 text-white text-right">
                   <span className="text-3xl font-light">
                     {slides[getIndex(1)].id}
@@ -138,7 +116,6 @@ export default function HeritageSlider() {
               </div>
             </div>
           </div>
-
           {/* Dots */}
           <div className="flex justify-center gap-4 mt-12">
             {slides.map((_, index) => (
@@ -149,8 +126,7 @@ export default function HeritageSlider() {
                   current === index
                     ? "w-16 h-2 bg-white"
                     : "w-3 h-3 bg-white/40"
-                }`}
-              />
+                }`} />
             ))}
           </div>
         </div>

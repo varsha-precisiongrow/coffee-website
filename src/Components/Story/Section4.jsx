@@ -20,24 +20,20 @@ const slides = [
       "From mountain terraces to your cup, every bean carries generations of craftsmanship, tradition, and unmatched quality from the highlands.",
   },
 ];
-
 export default function Section4() {
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % slides.length);
   };
-
   const prevSlide = () => {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
   };
-
   // Optional Auto Slide
   useEffect(() => {
     const interval = setInterval(nextSlide, 6000);
     return () => clearInterval(interval);
   }, []);
-
   return (
     <section className="w-full bg-[#E8DED3] overflow-hidden py-16 lg:py-24">
       <div className="max-w-[1800px] mx-auto">
@@ -51,15 +47,12 @@ export default function Section4() {
             World
           </h2>
         </div>
-
         {/* Slider */}
         <div className="relative flex items-stretch">
           {/* Main Image */}
           <div className="relative w-full lg:w-[85%] h-[450px] md:h-[650px] lg:h-[750px] overflow-hidden">
-            <div
-              className="flex h-full transition-transform duration-1000 ease-in-out"
-              style={{ transform: `translateX(-${current * 100}%)` }}
-            >
+            <div className="flex h-full transition-transform duration-1000 ease-in-out"
+              style={{ transform: `translateX(-${current * 100}%)` }} >
               {slides.map((slide, index) => (
                 <div
                   key={index}

@@ -59,49 +59,36 @@ const CoffeeSpecies = () => {
 
   return (
 
-<section className="relative py-24 overflow-hidden bg-[url('/src/assets/bg-img/bg-img-coffee.jpg')] bg-cover bg-center">
+  <section className="relative py-24 overflow-hidden bg-[url('/src/assets/bg-img/bg-img-coffee.jpg')] bg-cover bg-center">
      <div className="absolute top-0 left-0 w-full h-40 bg-black/30"></div>
-   
       <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-
         <motion.h4 variants={item} initial="hidden"  whileInView="show"  viewport={{ once: true }} className="text-4xl font-bold text-[#d4a373] mb-4 uppercase" >
           Coffee Species</motion.h4>
-
         <div className="w-20 md:w-24 h-1 bg-[#d4a373] mx-auto my-5 md:mt-4 rounded-full"></div>
-
         {/* Description */}
         <motion.p variants={item}  initial="hidden" whileInView="show" viewport={{ once: true }}
           className="text-gray-900 max-w-7xl mx-auto mb-14 text-lg leading-relaxed text-white">
-           Coffee is more than a beverage it begins with the species of the bean. 
-            Each coffee species grows in unique environments and carries distinct 
+           Coffee is more than a beverage it begins with the species of the bean. Each coffee species grows in unique environments and carries distinct 
             characteristics, influencing flavor, aroma, and overall experience.
 
-            From the smooth notes of Arabica to the bold strength of Robusta 
-            and the rare complexity of Liberica, understanding these species is essential 
-            for anyone passionate about coffee. Explore how each variety shapes the journey 
-            from farm to cup.
+            From the smooth notes of Arabica to the bold strength of Robusta and the rare complexity of Liberica, understanding these species is essential 
+            for anyone passionate about coffee. Explore how each variety shapes the journey from farm to cup.
         </motion.p>
-
         {/* Cards */}
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true }} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
           {speciesData.map((itemData, index) => (
             <motion.div key={index} variants={item}>
              <motion.div key={index} variants={item} className="h-full">
                 <SpeciesCard 
                     title={itemData.title}
                     description={itemData.description}
-                     image={itemData.image}
-                />
+                     image={itemData.image} />
                 </motion.div>
             </motion.div>
           ))}
-
         </motion.div>
-
       </div>
-    </section>
-
+</section>
   );
 };
 

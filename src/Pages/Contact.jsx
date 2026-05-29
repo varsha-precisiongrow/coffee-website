@@ -4,9 +4,7 @@ import {  FaPhoneAlt,  FaEnvelope,  FaMapMarkerAlt,  FaClock,  FaPaperPlane,  Fa
 import { Helmet } from 'react-helmet-async';
 import contactBanner from "../assets/bg-img/page-header-bg.webp";
 import contactbg from '../assets/bg-img/bud-formation-bg.webp'
-
 const text = "CONTACT US";
-
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
   show: (i = 1) => ({
@@ -18,40 +16,32 @@ const fadeUp = {
     },
   }),
 };
-
 const Contact = () => {
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
-
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState("");
-
   // Handle Input Change
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
-
     setErrors({
       ...errors,
       [e.target.name]: "",
     });
   };
-
   // Validation
   const validateForm = () => {
     let newErrors = {};
-
     if (!formData.name.trim()) {
       newErrors.name = "Full name is required";
     }
-
     if (!formData.email.trim()) {
       newErrors.email = "Email address is required";
     } else if (
@@ -59,35 +49,27 @@ const Contact = () => {
     ) {
       newErrors.email = "Enter a valid email address";
     }
-
     if (!formData.subject.trim()) {
       newErrors.subject = "Subject is required";
     }
-
     if (!formData.message.trim()) {
       newErrors.message = "Message cannot be empty";
     } else if (formData.message.length < 10) {
       newErrors.message = "Message should be at least 10 characters";
     }
-
     return newErrors;
   };
-
   // Submit Form
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const validationErrors = validateForm();
-
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       setSuccess("");
     } else {
       setErrors({});
       setSuccess("Your message has been sent successfully!");
-
       console.log(formData);
-
       // Reset Form
       setFormData({
         name: "",
@@ -97,7 +79,6 @@ const Contact = () => {
       });
     }
   };
-
   return (
     <>
         < Helmet>
@@ -118,12 +99,9 @@ const Contact = () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: `url(${contactBanner})`,
-        }}
-      />
-
+        }}  />
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/40" />
-
       {/* Center Content */}
       <div className="relative z-10 flex items-center justify-center h-full">
         <h1
@@ -147,48 +125,32 @@ const Contact = () => {
       </div>
     </section>
    {/* ================================================================== banner ================================================================================== */}
-
 <section className="relative w-full ">
-
-  <img
-    src={contactbg}
-    alt="bg"
-    className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-  />
-
- 
- 
+  <img  src={contactbg} alt="bg" className="absolute top-0 left-0 w-full h-full object-cover -z-10" loading="lazy"  />
       <div className="max-w-7xl mx-auto">
-
         {/* Top Heading */}
         <div className="text-center my-10">
-
           <motion.p
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             custom={1}
-            className="uppercase tracking-[4px] text-[#8b5e3c] text-sm font-semibold mb-3"
-          >
+            className="uppercase tracking-[4px] text-[#8b5e3c] text-sm font-semibold mb-3">
             Contact Us
           </motion.p>
-
           <motion.h2
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             custom={2}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#3b2416]"
-          >
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#3b2416]">
             Let’s Start A Conversation
           </motion.h2>
         </div>
-
         {/* Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-20 px-4">
-
           {/* Left Side */}
           <motion.div
             variants={fadeUp}
@@ -196,15 +158,11 @@ const Contact = () => {
             whileInView="show"
             viewport={{ once: true }}
             custom={3}
-            className="bg-white rounded-[30px] p-8 shadow-xl border border-[#f1e4d8]"
-          >
-
+            className="bg-white rounded-[30px] p-8 shadow-xl border border-[#f1e4d8]">
             <h3 className="text-3xl font-bold text-[#3b2416] mb-8">
               Contact Information
             </h3>
-
             <div className="space-y-6">
-
               {[
                 {
                     icon: <FaPhoneAlt size={22} />,
@@ -226,22 +184,18 @@ const Contact = () => {
                     title: "Working Hours",
                     text: "Mon - Sat : 9:30 AM - 6.30 PM",
                     },
-
               ].map((item, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ x: 8 }}
-                  className="flex gap-4"
-                >
+                  className="flex gap-4" >
                   <div className="w-14 h-14 rounded-full bg-[#f7ede4] flex items-center justify-center text-[#8b5e3c] shrink-0">
                     {item.icon}
                   </div>
-
                   <div>
                     <h4 className="text-xl font-semibold text-[#3b2416]">
                       {item.title}
                     </h4>
-
                     <p className="text-gray-600 mt-1">
                       {item.text}
                     </p>
@@ -251,7 +205,6 @@ const Contact = () => {
             </div>
             {/* Social Icons */}
             <div className="mt-10 flex gap-4">
-
               {[  FaInstagram,  FaFacebookF,  FaTwitter,].map((Icon, index) => (
                 <motion.div
                   key={index}
@@ -259,14 +212,12 @@ const Contact = () => {
                     scale: 1.15,
                     rotate: 8,
                   }}
-                  className="w-12 h-12 rounded-full bg-[#f7ede4] flex items-center justify-center cursor-pointer"
-                >
+                  className="w-12 h-12 rounded-full bg-[#f7ede4] flex items-center justify-center cursor-pointer">
                   <Icon className="text-[#8b5e3c]" size={22} />
                 </motion.div>
               ))}
             </div>
           </motion.div>
-
           {/* Right Form */}
           <motion.div
             variants={fadeUp}
@@ -274,15 +225,9 @@ const Contact = () => {
             whileInView="show"
             viewport={{ once: true }}
             custom={4}
-            className="bg-white rounded-[30px] p-8 shadow-xl border border-[#f1e4d8]"
-          >
-
-            <h4 className="text-3xl font-bold text-[#3b2416] mb-8">
-              Send A Message
-            </h4>
-
+            className="bg-white rounded-[30px] p-8 shadow-xl border border-[#f1e4d8]">
+            <h4 className="text-3xl font-bold text-[#3b2416] mb-8"> Send A Message </h4>
             <form onSubmit={handleSubmit} className="space-y-6">
-
               {/* Name */}
               <div>
                 <input
@@ -292,19 +237,10 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className={`w-full h-14 rounded-2xl border px-2 outline-none transition
-                  ${
-                    errors.name
-                      ? "border-red-500"
-                      : "border-[#e7d6c7] focus:border-[#8b5e3c]"
-                  }`}
-                />
-                {errors.name && (
-                  <p className="text-red-500 text-sm mt-2">
-                    {errors.name}
-                  </p>
+                  ${  errors.name ? "border-red-500" : "border-[#e7d6c7] focus:border-[#8b5e3c]" }`}  />
+                {errors.name && ( <p className="text-red-500 text-sm mt-2"> {errors.name} </p>
                 )}
               </div>
-
               {/* Email */}
               <div>
                 <input
@@ -318,16 +254,13 @@ const Contact = () => {
                     errors.email
                       ? "border-red-500"
                       : "border-[#e7d6c7] focus:border-[#8b5e3c]"
-                  }`}
-                />
-
+                  }`}  />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-2">
                     {errors.email}
                   </p>
                 )}
               </div>
-
               {/* Subject */}
               <div>
                 <input
@@ -343,14 +276,12 @@ const Contact = () => {
                       : "border-[#e7d6c7] focus:border-[#8b5e3c]"
                   }`}
                 />
-
                 {errors.subject && (
                   <p className="text-red-500 text-sm mt-2">
                     {errors.subject}
                   </p>
                 )}
               </div>
-
               {/* Message */}
               <div>
                 <textarea
@@ -366,33 +297,20 @@ const Contact = () => {
                       : "border-[#e7d6c7] focus:border-[#8b5e3c]"
                   }`}
                 ></textarea>
-
                 {errors.message && (
                   <p className="text-red-500 text-sm mt-2">
                     {errors.message}
                   </p>
                 )}
               </div>
-
               {/* Success Message */}
-              {success && (
-                <motion.p
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-green-600 font-medium"
-                >
-                  {success}
-                </motion.p>
-              )}
-
+              {success && (<motion.p initial={{ opacity: 0, y: 10 }}  animate={{ opacity: 1, y: 0 }} className="text-green-600 font-medium">{success}</motion.p> )}
               {/* Submit Button */}
-        
-              <motion.button
+                <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.96 }}
                 type="submit"
-                className="w-full sm:w-auto bg-[#6f4e37] hover:bg-[#5b3f2d] text-white px-8 py-4 rounded-2xl flex items-center justify-center gap-3 transition duration-300"
-                >
+                className="w-full sm:w-auto bg-[#6f4e37] hover:bg-[#5b3f2d] text-white px-8 py-4 rounded-2xl flex items-center justify-center gap-3 transition duration-300">
                 Send Message
                 <FaPaperPlane size={18} />
               </motion.button>
@@ -404,5 +322,4 @@ const Contact = () => {
     </>
   );
 };
-
 export default Contact;

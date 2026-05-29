@@ -14,7 +14,6 @@ const BlogDetailPg = () => {
         collection(db, "posts"),
         where("categoryId", "==", "Coffee-website")
       );
-
       const snap = await getDocs(q);
 
       const list = snap.docs.map((doc) => ({
@@ -40,22 +39,18 @@ const BlogDetailPg = () => {
         <span className="mx-2">/</span>
         <span className="text-black font-semibold">Blog</span>
       </div> 
-
       <h1 className="text-3xl font-bold mb-6">{post.title}</h1>
-
       <img
         src={post.imageURL}
         alt="img" loading="lazy"
         className="w-full mb-6 rounded"
       />
-
       <p className="text-gray-600 mb-4">
         {post.authorName} |{" "}
         {post.timestamp?.seconds
           ? new Date(post.timestamp.seconds * 1000).toLocaleDateString()
           : ""}
       </p>
-
       <div   className=" text-justify leading-relaxed
         [&_img]:float-right
         [&_img]:w-[45%]

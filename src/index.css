@@ -5,7 +5,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 @layer base {
   body {
     @apply font-serif;
@@ -21,12 +20,9 @@ body {
     opacity: 1;
   }
 }
-
 .animate-pop {
   animation: pop 0.4s ease forwards;
 }
-
-
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -38,12 +34,9 @@ body {
 html, body {
   scroll-behavior: auto;
 }
-
-
 .float-left-anim {
   animation: floatLeft 3s ease-in-out infinite;
 }
-
 /* RIGHT FLOAT */
 @keyframes floatRight {
   0% {
@@ -58,11 +51,9 @@ html, body {
     transform: translateY(0) translateX(20px);
   }
 }
-
 .float-right-anim {
   animation: floatRight 3s ease-in-out infinite;
 }
-
 @keyframes coffeeMove {
   0% {
     background-position: 0% 50%;
@@ -85,7 +76,6 @@ html, body {
 .script-title {
   font-family: 'Great Vibes', cursive;
   font-size: 40px;
-
   color: #d4a373; 
   letter-spacing: 0.03em;
 }

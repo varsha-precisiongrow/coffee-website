@@ -151,14 +151,7 @@ const LifeCycleOfCoffee = () => {
 }; 
   return (
    <motion.section  initial="hidden"  whileInView="show"  viewport={{ once: true }} className="relative w-full bg-gray-100 py-10 px-4 md:px-10 lg:px-20 bg-gradient-to-r from-[#f5e6d3] via-white to-[#f5e6d3]">
-
-    <motion.img 
-     variants={fadeUp}
-     src={sideimgs}
-      alt="sideimgs" 
-      loading="lazy"
-    className="absolute -left-24 bottom-0 w-96 h-[70%] hidden md:block " />  
-
+    <motion.img variants={fadeUp} src={sideimgs} alt="sideimgs" loading="lazy" className="absolute -left-24 bottom-0 w-96 h-[70%] hidden md:block " />  
       {/* Heading */}
       <motion.div variants={fadeUp} className="text-center max-w-7xl mx-auto mb-8">
         <h4 className="text-3xl md:text-4xl font-bold mb-3 text-[#603911]">
@@ -166,16 +159,13 @@ const LifeCycleOfCoffee = () => {
         </h4>
         <p className="text-lg">
         Every delicious cup of coffee is the result of a little magic in the form of a series of carefully planned steps taken by millions of people around the world who work together to produce and distribute our favorite beverage.
-     
         Below, we take a quick look at some of the main steps in the lifecycle of coffee. You can explore the most frequently asked questions and popular topics and click through if you’d like more details. It’s quite a journey from seedling to recycling!
         </p>
       </motion.div>
-
       {/* Counter */}
       <motion.div variants={fadeUp}className="max-w-7xl mx-auto mb-4 pl-4">
         {active + 1} / {tabs.length}
       </motion.div>
-
       {/* Tabs */}
       <motion.div variants={fadeUp}className="flex flex-nowrap justify-start gap-2 mb-10 max-w-7xl mx-auto overflow-x-auto">
         {tabs.map((tab, i) => (
@@ -185,19 +175,14 @@ const LifeCycleOfCoffee = () => {
             onMouseEnter={() => setActive(i)}
             className={`px-4 py-4 rounded-lg text-start font-semibold border-2 border-gray-100 ${
               active === i ? "bg-[#603911] text-white" : "bg-white"
-            }`}
-          >
-            {tab.title}
+            }`} > {tab.title}
           </button>
         ))}
       </motion.div>
-
       {/* CONTENT */}
      <motion.div variants={fadeUp} className="max-w-7xl mx-auto flex flex-col lg:flex-row items-stretch gap-10 ">
-
         {/* LEFT */}
         <motion.div variants={fadeUp} className="w-full lg:w-1/2 ">
-
           {/* SIMPLE CONTENT */}
           {current.content &&
             current.content.map((item, i) => {
@@ -208,7 +193,6 @@ const LifeCycleOfCoffee = () => {
                   </p>
                 );
               }
-
               if (item.type === "paragraph") {
                 return (
                   <p key={i} className="mb-5 text-lg ">
@@ -216,7 +200,6 @@ const LifeCycleOfCoffee = () => {
                   </p>
                 );
               }
-
               if (item.type === "section") {
                 return (
                   <div variants={fadeUp} key={i} className="mb-6">
@@ -227,10 +210,8 @@ const LifeCycleOfCoffee = () => {
                   </div>
                 );
               }
-
               return null;
             })}
-
           {/* PARAGRAPHS */}
           {current.paragraphs &&
             current.paragraphs.map((para, i) => (
@@ -238,7 +219,6 @@ const LifeCycleOfCoffee = () => {
                 {para}
               </p>
             ))}
-
           {/* BULLETS */}
           {current.bullets && (
             <ul className="list-disc pl-5 space-y-2">
@@ -252,38 +232,23 @@ const LifeCycleOfCoffee = () => {
           {/* ✅ RICH TEXT (LAST TAB DESIGN) */}
         {current.richText && (
         <div variants={fadeUp} className="space-y-6">
-
             {/* Intro */}
-            <p className="leading-relaxed text-lg">
-            {current.richText.intro}
-            </p>
-
+            <p className="leading-relaxed text-lg">{current.richText.intro} </p>
             {/* Heading */}
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-            {current.richText.heading}
-            </h2>
-
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900"> {current.richText.heading} </h2>
             {/* Points */}
             <div variants={fadeUp} className="space-y-4">
             {current.richText.points.map((item, i) => (
-                <p key={i} className=" leading-relaxed text-lg">
-                <span className="font-bold">{item.title}</span>{" "}
-                {item.desc}
-                </p>
+                <p key={i} className=" leading-relaxed text-lg"> <span className="font-bold">{item.title}</span>{" "} {item.desc} </p>
             ))}
             </div>
         </div>
         )}
         </motion.div>
-
         {/* RIGHT IMAGE */}
         <motion.div variants={fadeUp} className="w-full lg:w-1/2">
-         <motion.img
-           variants={fadeUp}
-            src={current.image}
-            alt="fadeUpimg" loading="lazy"
-            className="w-full h-full object-cover rounded-lg"
-          />
+         <motion.img variants={fadeUp} src={current.image}
+            alt="fadeUpimg" loading="lazy" className="w-full h-full object-cover rounded-lg" />
         </motion.div>
       </motion.div>
     </motion.section>

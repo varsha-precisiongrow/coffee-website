@@ -66,10 +66,8 @@ const Blog = () => {
         />
         <link rel="canonical" href="https://coffeeinstitute.co.in/blog" />
      </Helmet>
-
      <div className="p-10 pt-28 bg-gradient-to-r from-[#f5e6d8] via-white to-[#f5e6d8]">
-
-      {/* 🔥 Breadcrumb */}
+     {/* 🔥 Breadcrumb */}
       <div className="mb-6 text-xl text-gray-600 max-w-7xl mx-auto">
         <Link to="/" className="hover:text-black font-medium">
           Home
@@ -77,7 +75,6 @@ const Blog = () => {
         <span className="mx-2">/</span>
         <span className="text-black font-semibold">Blog</span>
       </div>
-
       {/* ✅ 3x3 Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
         {current.map((blog) => (
@@ -91,34 +88,23 @@ const Blog = () => {
           />
         ))}
       </div>
-
       {/* ❗ Empty state */}
       {posts.length === 0 && (
         <p className="text-center mt-10 text-gray-500">
           No blogs found
         </p>
       )}
-
       {/* ✅ Pagination */}
       {totalPages > 1 && (
         <div className="flex justify-center mt-10 gap-4">
-          <button
-            className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
+          <button className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
             onClick={() => setPage(page - 1)}
-            disabled={page === 1}
-          >
-            Prev
-          </button>
-
+            disabled={page === 1} > Prev </button>
           <span className="font-bold">{page}</span>
-
           <button
             className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50"
             onClick={() => setPage(page + 1)}
-            disabled={page === totalPages}
-          >
-            Next
-          </button>
+            disabled={page === totalPages}> Next </button>
         </div>
       )}
     </div>
